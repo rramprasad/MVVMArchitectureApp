@@ -1,4 +1,4 @@
-package com.rramprasad.testingsample.viewmodel;
+package com.rramprasad.testingsample.repository;
 
 import android.arch.lifecycle.MutableLiveData;
 import android.content.Context;
