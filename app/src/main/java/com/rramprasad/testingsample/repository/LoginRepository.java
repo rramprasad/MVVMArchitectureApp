@@ -23,7 +23,7 @@ public class LoginRepository {
             }
         },5*1000);
 
-        //return MutableLiveData object to observe on UI
+        //Return MutableLiveData object to observe on UI
         return loginResponseLiveData;
     }
 }
