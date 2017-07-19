@@ -1,14 +1,11 @@
 package com.rramprasad.testingsample.view;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.LifecycleRegistry;
 import android.arch.lifecycle.LifecycleRegistryOwner;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,13 +16,14 @@ import android.widget.Toast;
 
 import com.rramprasad.testingsample.R;
 import com.rramprasad.testingsample.Utils;
+import com.rramprasad.testingsample.utils.LifecycleSupportFragment;
 import com.rramprasad.testingsample.viewmodel.LoginFragmentViewModel;
 
 /**
  * Created by Ramprasad on 7/18/17.
  */
 
-public class LoginFragment extends Fragment implements View.OnClickListener, LifecycleRegistryOwner {
+public class LoginFragment extends LifecycleSupportFragment implements View.OnClickListener, LifecycleRegistryOwner {
 
     private static final String TAG = LoginFragment.class.getSimpleName();
     private EditText mUsernameEditText;

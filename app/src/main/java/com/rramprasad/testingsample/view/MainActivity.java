@@ -4,8 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.rramprasad.testingsample.R;
+import com.rramprasad.testingsample.utils.ActivityUtils;
+import com.rramprasad.testingsample.utils.LifecycleAppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends LifecycleAppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,12 +18,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeViews() {
+
         LoginFragment loginFragment = LoginFragment.newInstance();
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.main_activity_container, loginFragment)
-                .commit();
-
+        ActivityUtils.replaceFragmentInActivity(getSupportFragmentManager(),loginFragment,R.id.main_activity_container);
     }
 }

@@ -4,6 +4,8 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
+import com.rramprasad.testingsample.repository.LoginRepository;
+
 /**
  * Created by Ramprasad on 7/18/17.
  */
