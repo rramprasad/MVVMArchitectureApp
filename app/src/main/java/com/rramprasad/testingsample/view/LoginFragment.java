@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.rramprasad.testingsample.R;
-import com.rramprasad.testingsample.Utils;
+import com.rramprasad.testingsample.utils.Utils;
 import com.rramprasad.testingsample.utils.LifecycleSupportFragment;
 import com.rramprasad.testingsample.viewmodel.LoginFragmentViewModel;
 
