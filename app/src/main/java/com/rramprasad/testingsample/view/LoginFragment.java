@@ -93,6 +93,11 @@ public class LoginFragment extends LifecycleSupportFragment implements View.OnCl
     }
 
     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    @Override
     public LifecycleRegistry getLifecycle() {
         return mLifecycleRegistry;
     }
