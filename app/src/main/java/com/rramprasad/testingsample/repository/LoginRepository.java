@@ -14,14 +14,15 @@ public class LoginRepository {
 
         final MutableLiveData<String> loginResponseLiveData = new MutableLiveData<String>();
 
-        new Handler().postDelayed(new Runnable() {
+        Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 //send username,password to server,
                 // For testing purpose,set delay on handler to simulate this process
                 loginResponseLiveData.setValue("Login success");
             }
-        },5*1000);
+        };
+        new Handler().postDelayed(runnable,5*1000);
 
         //Return MutableLiveData object to observe on UI
         return loginResponseLiveData;
