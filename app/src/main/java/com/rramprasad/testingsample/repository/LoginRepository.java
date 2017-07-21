@@ -2,7 +2,6 @@ package com.rramprasad.testingsample.repository;
 
 import android.arch.lifecycle.MutableLiveData;
 import android.os.Handler;
-import android.support.test.espresso.IdlingResource;
 
 import com.rramprasad.testingsample.utils.SimpleIdlingResource;
 

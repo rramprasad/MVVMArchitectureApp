@@ -14,9 +14,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.rramprasad.testingsample.R;
+import com.rramprasad.testingsample.utils.LifecycleSupportFragment;
 import com.rramprasad.testingsample.utils.SimpleIdlingResource;
 import com.rramprasad.testingsample.utils.Utils;
-import com.rramprasad.testingsample.utils.LifecycleSupportFragment;
 import com.rramprasad.testingsample.viewmodel.LoginFragmentViewModel;
 
 /**

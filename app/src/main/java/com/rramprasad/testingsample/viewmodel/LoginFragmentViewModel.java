@@ -3,7 +3,6 @@ package com.rramprasad.testingsample.viewmodel;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
-import android.support.test.espresso.IdlingResource;
 
 import com.rramprasad.testingsample.repository.LoginRepository;
 import com.rramprasad.testingsample.utils.SimpleIdlingResource;

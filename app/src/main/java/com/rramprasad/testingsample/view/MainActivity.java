@@ -1,13 +1,10 @@
 package com.rramprasad.testingsample.view;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
 
 import com.rramprasad.testingsample.R;
 import com.rramprasad.testingsample.utils.ActivityUtils;
 import com.rramprasad.testingsample.utils.LifecycleAppCompatActivity;
-import com.rramprasad.testingsample.utils.SimpleIdlingResource;
 
 public class MainActivity extends LifecycleAppCompatActivity {
 
