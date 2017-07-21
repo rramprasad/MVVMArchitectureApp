@@ -1,13 +1,17 @@
 package com.rramprasad.testingsample.view;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.VisibleForTesting;
 
 import com.rramprasad.testingsample.R;
 import com.rramprasad.testingsample.utils.ActivityUtils;
 import com.rramprasad.testingsample.utils.LifecycleAppCompatActivity;
+import com.rramprasad.testingsample.utils.SimpleIdlingResource;
 
 public class MainActivity extends LifecycleAppCompatActivity {
+
+    //private SimpleIdlingResource mIdlingResource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,16 @@ public class MainActivity extends LifecycleAppCompatActivity {
 
         LoginFragment loginFragment = LoginFragment.newInstance();
 
-        ActivityUtils.replaceFragmentInActivity(getSupportFragmentManager(),loginFragment,R.id.main_activity_container);
+        ActivityUtils.replaceFragmentInActivity(getSupportFragmentManager(), loginFragment, R.id.main_activity_container);
     }
+
+    /*@VisibleForTesting
+    @NonNull
+    public SimpleIdlingResource getIdlingResource() {
+        if (mIdlingResource == null) {
+            mIdlingResource = new SimpleIdlingResource();
+        }
+        return mIdlingResource;
+    }*/
 }
+

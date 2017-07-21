@@ -28,16 +28,46 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:26.0.0-beta2'
 
     //Android Architecture components
-    compile "android.arch.lifecycle:runtime:1.0.0-alpha4"
-    compile "android.arch.lifecycle:extensions:1.0.0-alpha4"
-    annotationProcessor "android.arch.lifecycle:compiler:1.0.0-alpha4"
+    compile "android.arch.lifecycle:runtime:1.0.0-alpha5"
+    compile "android.arch.lifecycle:extensions:1.0.0-alpha5"
+    annotationProcessor "android.arch.lifecycle:compiler:1.0.0-alpha5"
 
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+
 
     testImplementation 'junit:junit:4.12'
 
     //Mockito
     testCompile "org.mockito:mockito-core:2.7.1"
+
+    //Espresso test dependencies
+
+    compile 'com.android.support:support-annotations:25.4.0'
+
+    // Android JUnit Runner
+    androidTestCompile 'com.android.support.test:runner:0.5'
+
+    // JUnit4 Rules
+    androidTestCompile 'com.android.support.test:rules:0.5'
+
+    // Espresso core
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    // Espresso-contrib for DatePicker, RecyclerView, Drawer actions,
+    // Accessibility checks, CountingIdlingResource
+    //androidTestCompile 'com.android.support.test.espresso:espresso-contrib:2.2.2'
+
+    // Espresso-web for WebView support
+    //androidTestCompile 'com.android.support.test.espresso:espresso-web:2.2.2'
+
+    // Espresso-idling-resource for synchronization with background jobs
+    compile 'com.android.support.test.espresso:espresso-idling-resource:2.2.2'
+    //androidTestCompile 'com.android.support.test.espresso:espresso-idling-resource:2.2.2'
+
+    // Espresso-intents for validation and stubbing of Intents
+    //androidTestCompile 'com.android.support.test.espresso:espresso-intents:2.2.2'
+
+    // UiAutomator
+    //androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
 }

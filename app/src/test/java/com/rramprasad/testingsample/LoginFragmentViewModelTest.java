@@ -1,29 +1,19 @@
 package com.rramprasad.testingsample;
 
-import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Observer;
-import android.os.Handler;
-import android.support.annotation.Nullable;
 
 import com.rramprasad.testingsample.repository.LoginRepository;
 import com.rramprasad.testingsample.viewmodel.LoginFragmentViewModel;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
-import org.mockito.stubbing.OngoingStubbing;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
 import static junit.framework.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -52,10 +42,10 @@ public class LoginFragmentViewModelTest {
     @Test
     public void check_do_login(){
         MutableLiveData<String> mutableLiveData = mock(MutableLiveData.class);
-        when(mLoginRepository.login(anyString(), anyString())).thenReturn(mutableLiveData);
+        when(mLoginRepository.login(anyString(), anyString(), idlingResource)).thenReturn(mutableLiveData);
         when(mutableLiveData.getValue()).thenReturn("Testing value");
 
-        LiveData<String> stringLiveData = mLoginFragmentViewModel.doLogin("username@gmail.com", "password@123");
+        LiveData<String> stringLiveData = mLoginFragmentViewModel.doLogin("username@gmail.com", "password@123", (((MainActivity) getActivity()).getIdlingResource()));
         assertEquals(stringLiveData.getValue(),"Testing value");
 
         /*

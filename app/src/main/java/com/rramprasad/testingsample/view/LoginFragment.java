@@ -1,7 +1,6 @@
 package com.rramprasad.testingsample.view;
 
 import android.arch.lifecycle.LifecycleRegistry;
-import android.arch.lifecycle.LifecycleRegistryOwner;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -12,9 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.rramprasad.testingsample.R;
+import com.rramprasad.testingsample.utils.SimpleIdlingResource;
 import com.rramprasad.testingsample.utils.Utils;
 import com.rramprasad.testingsample.utils.LifecycleSupportFragment;
 import com.rramprasad.testingsample.viewmodel.LoginFragmentViewModel;
@@ -23,13 +23,14 @@ import com.rramprasad.testingsample.viewmodel.LoginFragmentViewModel;
  * Created by Ramprasad on 7/18/17.
  */
 
-public class LoginFragment extends LifecycleSupportFragment implements View.OnClickListener, LifecycleRegistryOwner {
+public class LoginFragment extends LifecycleSupportFragment implements View.OnClickListener {
 
     private static final String TAG = LoginFragment.class.getSimpleName();
     private EditText mUsernameEditText;
     private EditText mPasswordEditText;
     private LoginFragmentViewModel mLoginFragmentViewModel;
     LifecycleRegistry mLifecycleRegistry = new LifecycleRegistry(this);
+    private TextView mResultTextView;
 
     public static LoginFragment newInstance() {
         return new LoginFragment();
@@ -43,6 +44,7 @@ public class LoginFragment extends LifecycleSupportFragment implements View.OnCl
         mUsernameEditText = rootView.findViewById(R.id.username_edit_text);
         mPasswordEditText = rootView.findViewById(R.id.password_edit_text);
         Button loginButton = rootView.findViewById(R.id.login_button);
+        mResultTextView = rootView.findViewById(R.id.result_textview);
         loginButton.setOnClickListener(this);
         return rootView;
     }
@@ -80,11 +82,16 @@ public class LoginFragment extends LifecycleSupportFragment implements View.OnCl
                     focusView.requestFocus();
                 }
 
-                mLoginFragmentViewModel.doLogin(username,password).observe(this, new Observer<String>() {
+
+
+                //mLoginFragmentViewModel.doLogin(username,password,
+                  //    (((MainActivity)getActivity()).getIdlingResource())).observe(this, new Observer<String>() {
+                mLoginFragmentViewModel.doLogin(username,password,
+                        SimpleIdlingResource.getInstance()).observe(this, new Observer<String>() {
                     @Override
                     public void onChanged(@Nullable final String s) {
                         Log.d(TAG, "onChanged: "+s);
-                        Toast.makeText(getActivity(), s, Toast.LENGTH_SHORT).show();
+                        mResultTextView.setText(s);
                     }
                 });
 
@@ -95,10 +102,5 @@ public class LoginFragment extends LifecycleSupportFragment implements View.OnCl
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-    }
-
-    @Override
-    public LifecycleRegistry getLifecycle() {
-        return mLifecycleRegistry;
     }
 }
